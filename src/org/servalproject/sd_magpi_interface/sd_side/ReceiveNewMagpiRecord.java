@@ -9,7 +9,11 @@ public class ReceiveNewMagpiRecord extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		Toast.makeText(context, "Intent Detected.", Toast.LENGTH_LONG).show();
+		String recordUUID =  intent.getStringExtra("recordUUID");
+		String completedRecord = intent.getStringExtra("recordData");
+		String recordBundle = intent.getStringExtra("recordBundle");
+		String formSpecification =  intent.getStringExtra("formSpecification");
+		Toast.makeText(context, "Intent Detected. UUID:" + recordUUID, Toast.LENGTH_LONG).show();
 
 	}
 

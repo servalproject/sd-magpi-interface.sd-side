@@ -20,6 +20,11 @@ public class MainActivity extends ActionBarActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	Intent intent = new Intent();
+            	intent.putExtra("recordUUID","UUID-of-completed-record-as-a-string");
+            	intent.putExtra("recordData","xml of completed form record goes here as one long string");
+            	intent.putExtra("recordBundle","contents of ZIP file or other representation of completed record, including any images and other large media");
+            	intent.putExtra("formSpecification","xml of form specification file goes here as one long string");
+            	
                 intent.setAction("org.servalproject.succinctdata.ReceiveNewMagpiRecord");
                 sendBroadcast(intent);
             }            
