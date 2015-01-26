@@ -44,7 +44,7 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
             	Intent intent = new Intent();
             	intent.putExtra("recordUUID",uuidTextView.getText());            	
-                intent.setAction("org.servalproject.succinctdata.MagpiRecordSentBySuccinctData");
+                intent.setAction("org.servalproject.succinctdata.SuccinctDataTXNotification");
                 sendBroadcast(intent);
             }            
         });
@@ -60,7 +60,7 @@ public class MainActivity extends ActionBarActivity {
             		final String formData = new String(buffer);
             		Intent intent = new Intent();
             		intent.putExtra("formData",formData);            	
-            		intent.setAction("org.servalproject.succinctdata.announceReceivedMagpiFormSpecification");
+            		intent.setAction("org.servalproject.succinctdata.SuccinctDataNewFormNotification");
             		sendBroadcast(intent);
             	} catch (Exception e) {            	
             	}
