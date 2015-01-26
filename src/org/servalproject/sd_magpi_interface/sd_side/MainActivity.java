@@ -1,5 +1,7 @@
 package org.servalproject.sd_magpi_interface.sd_side;
 
+import java.io.InputStream;
+
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,6 +36,34 @@ public class MainActivity extends ActionBarActivity {
             	
                 intent.setAction("org.servalproject.succinctdata.ReceiveNewMagpiRecord");
                 sendBroadcast(intent);
+            }            
+        });
+        
+        final Button buttonTXSim = (Button) findViewById(R.id.simulateMagpiRecordTXdBySD);
+        buttonTXSim.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	Intent intent = new Intent();
+            	intent.putExtra("recordUUID",uuidTextView.getText());            	
+                intent.setAction("org.servalproject.succinctdata.MagpiRecordSentBySuccinctData");
+                sendBroadcast(intent);
+            }            
+        });
+        
+        final Button buttonNewFormSim = (Button) findViewById(R.id.simulateMagpiNewFormSpecification);
+        buttonNewFormSim.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	try {
+            		InputStream is = getAssets().open("sampleform.xhtml");
+            		int size = is.available();
+            		byte[] buffer = new byte[size];
+            		is.read(buffer);
+            		final String formData = new String(buffer);
+            		Intent intent = new Intent();
+            		intent.putExtra("formData",formData);            	
+            		intent.setAction("org.servalproject.succinctdata.announceReceivedMagpiFormSpecification");
+            		sendBroadcast(intent);
+            	} catch (Exception e) {            	
+            	}
             }            
         });
         

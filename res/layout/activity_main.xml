@@ -32,4 +32,22 @@
         android:layout_marginTop="15dp"
         android:text="&lt;none>" />
 
+    <Button
+        android:id="@+id/simulateMagpiRecordTXdBySD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/simulateMagpiRecordRX"
+        android:layout_below="@+id/simulateMagpiRecordRX"
+        android:layout_marginTop="20dp"
+        android:text="Tell Magpi record has been sent" />
+
+    <Button
+        android:id="@+id/simulateMagpiNewFormSpecification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/simulateMagpiRecordTXdBySD"
+        android:layout_below="@+id/simulateMagpiRecordTXdBySD"
+        android:layout_marginTop="21dp"
+        android:text="Tell Magpi a new form specification has been received" />
+
 </RelativeLayout>
