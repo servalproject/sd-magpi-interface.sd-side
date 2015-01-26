@@ -3,18 +3,25 @@ package org.servalproject.sd_magpi_interface.sd_side;
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
 
+	TextView uuidTextView = null;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        uuidTextView = (TextView) findViewById(R.id.lastReceivedUUID);
+        ReceiveNewMagpiRecord.setMainActivity(this);
         
         final Button button = (Button) findViewById(R.id.simulateMagpiRecordRX);
         button.setOnClickListener(new View.OnClickListener() {
@@ -51,4 +58,15 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
     
+    private Handler mHandler = new Handler();
+
+    public void updateLastUUIDLabel(String uuid) {
+    	final String s = uuid;
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                uuidTextView.setText(s);
+            }
+        });
+    }
 }    

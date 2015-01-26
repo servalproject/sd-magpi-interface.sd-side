@@ -12,14 +12,24 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="UUID of fast received record:" />
 
     <Button
         android:id="@+id/simulateMagpiRecordRX"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/lastReceivedUUID"
+        android:layout_marginTop="29dp"
+        android:text="Simulate reception of Magpi Record" />
+
+    <TextView
+        android:id="@+id/lastReceivedUUID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/textView1"
         android:layout_marginTop="15dp"
-        android:text="Simulate reception of Magpi Record" />
+        android:text="&lt;none>" />
 
 </RelativeLayout>
