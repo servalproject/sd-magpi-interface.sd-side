@@ -69,6 +69,14 @@ public class MainActivity extends ActionBarActivity {
         
     }
 
+    protected void onResume() {
+  	  super.onResume();
+    }
+
+    protected void onPause() {
+    	  super.onPause();
+      }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
